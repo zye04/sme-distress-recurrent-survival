@@ -1,0 +1,192 @@
+----------------------------------------------------------------------------------------------------------------------------
+Metodologia: Sobrevivência Clássica vs. Machine Learning
+
+**Short-and Long-Term Financial Distress Prediction in SMEs: A Survival Model Comparison
+Foco: Comparação de Cox vs. RSF em PMEs portuguesas.
+Justifica o uso de RSF. Conclui que o Cox subvaloriza o risco a longo prazo; o RSF (incluindo o Accelerated Oblique) 
+tem melhor desempenho para diferentes horizontes (1, 3 e 5 anos) usando AUC e Brier Score (métricas centrais da tese).
+
+**APPLICATION OF THE RANDOM SURVIVAL FORESTS METHOD IN THE BANKRUPTCY PREDICTION FOR SMALL AND MEDIUM ENTERPRISES  
+Foco: Aplicação do RSF vs. Cox, com inclusão de fatores não financeiros.
+Demonstra que o RSF oferece resultados melhores e mais estáveis do que o Cox, reforçando a sua escolha de ML.
+
+**Predicting Financial Distress Using Machine Learning Techniques
+Foco: Comparação ampla entre ML (Random Forest, Redes Neurais) e Logit.
+Confirma que os modelos de Machine Learning têm melhor accuracy preditiva do que os modelos estatísticos tradicionais. 
+O Random Forest é altamente eficaz.
+
+**Early warning signs of financial distress using random forest and logit model
+Foco: Comparação do Random Forest com o modelo Logit para sinais de alerta precoce.
+Reforça a superioridade do Random Forest e a sua adequação para previsões multi-período (sinais de alerta), alinhado com o foco temporal da tese.
+
+**Predicting Financial Distress: A Comparison of Survival Analysis and Decision Tree Techniques
+Foco: Comparação de modelos de sobrevivência (Cox) e árvores de decisão (CART) com abordagens tradicionais (análise discriminante, regressão logística).
+Conclui que tanto as árvores de decisão como a análise de sobrevivência são ferramentas úteis e com boa accuracy preditiva, justificando a sua investigação e aplicação.
+
+**Aplicação de Modelos de Machine Learning para Previsão de Eventos de Stress Financeiro
+Foco: Dissertação local (Portugal, mesmo contexto de Orientadores) aplicando ML a stress financeiro.
+Referência vital para a estruturação de dados e a implementação prática dos modelos de ML no contexto português.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Metodologia Avançada: Recorrência e Deep Learning
+
+**The recurrence of financial distress: A survival analysis
+Foco: Modelo de hazard estratificado para prever a recorrência de stress financeiro.
+Artigo central para justificar o objetivo de eventos recorrentes. Mostra que o tempo de recuperação e as reestruturações são 
+fatores mais importantes do que apenas os rácios financeiros.
+
+**DeepHit: A Deep Learning Approach to Survival Analysis with Competing Risks
+Foco: Introdução do modelo DeepHit, uma Rede Neural Profunda para Análise de Sobrevivência com Riscos Competitivos.
+Permite modelar a probabilidade de diferentes tipos de eventos ao longo do tempo, 
+sendo essencial para o seu cenário de Multi-Estado (Stress Moderado -> Recuperação/Severo).
+
+**Corporate financial distress prediction with multiperiod annual report data: A fusion deep neural network model
+Foco: Uso de deep learning neural network para combinar dados financeiros multiperíodo e dados textuais.
+Justifica o poder do Deep Learning para lidar com dados de alta dimensão e complexidade, algo que modelos tradicionais não conseguem.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Fatores Microeconómicos: Governance e Qualidade Contabilística
+
+**Predicting the risk of financial distress using corporate governance measures
+Foco: Investigação sobre o valor preditivo das medidas de governance empresarial.
+Fornece a base teórica para a inclusão de features não financeiras microeconómicas (como composição do Conselho(board members)) para 
+aumentar a accuracy.
+
+**Modeling default prediction with earnings management
+Foco: Análise do papel do Earnings Management (gestão de resultados/qualidade contabilística) na previsão de default.
+Argumenta que a qualidade da informação financeira é um preditor de risco precoce e crucial, justificando a inclusão destas métricas de qualidade de lucro.
+
+**Bank failure prediction: corporate governance and financial indicators
+Foco: Combinação de rácios financeiros (CAMEL) com variáveis de governance.
+Reforça que a combinação de indicadores financeiros com variáveis não financeiras aumenta a accuracy e estende o horizonte de previsão.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Fatores Macroeconómicos: Ambiente Económico
+
+**Retail credit stress testing using a discrete hazard model with macroeconomic factors
+Foco: Uso de um Modelo de Hazard Discreto com fatores macroeconómicos para stress testing.
+Justifica a modelação de risco em intervalos de tempo discretos e mostra como incorporar variáveis macroeconómicas dinâmicas 
+(e.g., taxas de juro, crescimento do PIB) como covariáveis.
+
+**Macroeconomic conditions and bank failure
+Foco: Utilização de um modelo de hazard dependente do tempo (time-varying hazard model) para examinar a influência de variáveis macroeconómicas.
+Justificação crucial para usar variáveis macro como covariáveis dependentes do tempo, modelando a sensibilidade das empresas ao ciclo económico.
+
+
+__________________________________________________________________________________________________________________________
+
+**Questões de Investigação**
+
+Que variavéis utilizar? 
+Que modelos utilizar?
+
+
+
+
+
+
+
+
+
+
+
+Notas gerais:
+
+Fazer tabela com os artigos: titulo, autor, modelos usados, resultados Guardar as querys usadas para encontrar os artigos
+---------------------------------
+12/11/2025
+
+Hypothesis.
+"   The Feature Hypothesis- Controlling for the choice of model the inclusion of corporate governance and macroeconomic
+  data alongside firm-level data provides a statiscally significant predictive improvement over a baseline model using
+  only firm-level  data, such as financial ratios, liquidity and profitability ratios for predicting the recurrence of
+  financial distress, as measured by C-Index. 
+    
+    The model Hypothesis - Given a comprehensive feature set including
+  financial, governance, and macroeconomic data, an advanced survival model like, RSF or DeepHit will achieve a
+  statiscally significant improvement in predictive accuracy for financial distress  compared to a more traditional
+  approach such as Cox Proportional Hazards, as measured by Brier Score, AUC, C-Index. 
+    
+    The recurrence Hypothesis - Given the comphreensive feature set validated in Hypothesis 1, advanced survival models,
+  specifically RSF and DeepHit, will achieve a statistically significant improvement in predictive accuracy for the 
+  recurrence of financial distress compared to the Cox Proportinal Hazards model, as measured by AUC, Brier Score and Log-Likelihood"
+
+Explaination of why we choose the Cox Hazards Model as a baseline.
+"   My choice of the Cox model as the primary baseline is a deliberate one, designed to test specific,
+  well kown limitation of traditional survival analysis. Unlike the average logistic regression model, the Cox model is 
+  designed for time-to-event data and, crucially, can properly account for right-censoring. Although 
+  the Cox model has positive features it has a primary limitation, the proportional hazards (PH) assumption,
+  where it states that the ratio of hazard rates is constant over time, which means the effect of covariates is assumed
+  to be the same at the start of the study as is two years later. Both counterparts to the Cox model presented in the hypotheses 2
+  RSF and DeepHit overcome that assumption. For the RSF each tree in the forest calculates a non-parametric cumulative
+  hazard function, and the ensemble average is robust to non-proportionality. For the DeepHit, its neural network architecture
+  is designed to learn flexible and non-linear interactions between covariates and time, directly modeling the probability
+  distribution of event times without being constrained by the PH assumption.
+
+
+
+
+
+
+
+
+  The Narrative Strategy
+
+  1. Introduction & Motivation: "The World has a Problem"
+   * Goal: To establish the context and importance of your work. You must make the audience feel that financial
+     distress in SMEs is a significant, unsolved problem with real-world consequences.
+   * Content: Start broad. Use statistics on SME failure rates in Portugal or Europe. Highlight the economic impact
+     (job losses, instability). State clearly that existing prediction models are insufficient, especially concerning
+     the dynamic nature of distress.
+   * Transition: You will end this section by stating that while we know firms fail, "the key unresolved challenge is
+     to accurately predict the recurrence of distress and understand the factors that differentiate survivors from
+     failures." This creates a vacuum that the next section will fill.
+
+  2. Core Research Problem: "Here is the Specific Gap I Will Fill"
+   * Goal: To narrow the broad problem into a focused, academic research gap. You are moving from a real-world
+     problem to a scientific one.
+   * Content: Briefly touch upon the literature. Mention the prevalence of traditional models (like Cox). State that
+     few have successfully modeled recurrence using modern machine learning and rich, non-financial data. Your work
+     is positioned at this precise intersection.
+   * Transition: End by formally posing your research question, leading directly into your proposed answer: your
+     hypotheses.
+
+  3. Key Hypotheses: "This Is My Proposed Solution"
+   * Goal: To present your three hypotheses as the clear, logical, and testable answers to the research problem. This
+     is the intellectual core of your presentation.
+   * Content: Dedicate one slide to each hypothesis. State them verbatim, cleanly and without excessive commentary.
+     They are assertions you will prove. The clarity and rigor you achieved previously are your weapons here.
+   * Transition: After stating your claims, the natural next question from the audience is "How?" You will transition
+     by saying, "To test these hypotheses, I have designed the following methodology."
+
+  4. Proposed Methodology: "This Is How I Will Prove It"
+   * Goal: To demonstrate that your plan for testing the hypotheses is rigorous, appropriate, and feasible. This
+     section builds your credibility as a researcher.
+   * Content:
+       * Data: Briefly describe your data sources (SMEs, governance, macro).
+       * Models: Name the models (Cox, RSF, DeepHit) and present your authoritative defense for why you chose them
+         (censoring, PH assumption, etc.).
+       * Evaluation: State the metrics you will use (C-Index, Brier Score, AUC).
+   * Transition: "The successful execution of this methodology will lead to the following contributions."
+
+  5. Expected Contribution & Timeline: "This Is Why It Matters and When It Will Be Done"
+   * Goal: To state the value proposition of your work and show you have a credible plan for completion.
+   * Content:
+       * Contribution: State clearly what new knowledge will be created (e.g., "The first comprehensive comparison of
+         ML models for recurrent distress in Portuguese SMEs," "A validation of governance data as a key
+         predictor...").
+       * Timeline: Present a simple, high-level Gantt chart or list of milestones. This shows you are a competent
+         project manager.
+   * Transition: "I am confident in this plan and welcome your questions."
+
+  6. Q&A: "Challenge Me"
+   * Goal: To defend your work with confidence and precision. You have already prepared for this by strengthening
+     your arguments here.
+
+  This is the logical flow. It is non-negotiable.
+
+  Your mandate is to begin. Produce the bullet points for Slide 3: Introduction & Motivation. Focus on the statistics
+  and the "problem statement."
