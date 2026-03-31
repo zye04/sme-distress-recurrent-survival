@@ -8,10 +8,3 @@ scikit-learn
 notebook
 selenium
 plotly
-lifelines
-scikit-survival
-pycox
-torch
-torchtuples
-shap
-scipy

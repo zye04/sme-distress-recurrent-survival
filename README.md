@@ -1,87 +1,38 @@
-# Dissertation: Recurrent Financial Distress Prediction in Portuguese SMEs
+# Dissertation: Financial Distress Prediction in Portuguese SMEs
 
-## Research Overview
+## Project Overview
+This research project focuses on the prediction of corporate financial distress recurrence. It compares classical survival analysis models (Cox PH) against modern machine learning (RSF) and deep learning (DeepHit) techniques, using a dataset of Portuguese Small and Medium Enterprises (SMEs).
 
-This project models recurring financial distress episodes in Portuguese SMEs using a
-**multi-state survival analysis** framework, comparing classical statistical models against
-machine learning and deep learning approaches.
+The primary goal is to build and validate superior models for predicting financial distress by incorporating financial, corporate governance, accounting quality, and macroeconomic variables.
 
-The core contribution is framing the problem as a **multi-state model** with competing risks:
-- **State 0 — Healthy:** Normal operations
-- **State 1 — Transient Distress:** Recoverable distress (negative equity or EBITDA < interest)
-- **State 2 — Terminal:** Legal dissolution, liquidation, or bankruptcy (absorbing state)
+## 📁 Directory Structure
+Adopted a software engineering oriented structure for reproducibility and modularity:
 
-## Hypotheses
+- **data/**: Project datasets (Raw, Interim, Processed).
+  - `raw/`: Original, immutable data.
+  - `interim/`: Data in transformation (e.g., long-format for recurrence).
+  - `processed/`: Final datasets ready for modeling.
+- **docs/**: Academic documentation and literary resources.
+  - `dissertation/`: Thesis text (LaTeX/Word).
+  - `literature/`: Academic papers (PDFs) and research notes.
+  - `proposal/`: Official research proposal and timelines.
+  - `estg-masters/`: Preliminary articles and presentations.
+- **src/**: Main source code of the project (Modular).
+  - `data/`: Scripts for data gathering and wrangling.
+  - `features/`: Feature engineering scripts (ratios, governance metrics).
+  - `models/`: Model architecture definitions (Cox, RSF, DeepHit).
+  - `visualization/`: Scripts for generating thesis figures and tables.
+- **notebooks/**: Jupyter notebooks for EDA and prototyping.
+- **models/**: Storage for trained machine learning models binaries.
+- **reports/**: Generated figures, tables, and analysis outputs.
+- **tests/**: Unit tests for code verification.
 
-- **H1:** Adding Corporate Governance and Macroeconomic variables significantly reduces
-  calibration error (Brier Score) and improves discrimination (C-Index) over financials alone.
-- **H2:** DynamicDeepHit outperforms static models (Cox, RSF) by capturing the firm's
-  financial memory through longitudinal trajectories.
-- **H3:** Recurrence determinants (0→1 after a prior episode) are structurally different
-  from first-episode determinants, as evidenced by Cox PWP stratified coefficients.
+## 🚀 Getting Started
+1. Create a virtual environment: `python -m venv venv`
+2. Activate it: `source venv/bin/activate` (or `.\venv\Scripts\activate` on Windows)
+3. Install dependencies: `pip install -r requirements.txt`
 
-## Model Stack
-
-| Model | Role | Key Feature |
-|-------|------|-------------|
-| Cox AG | Baseline | Andersen-Gill recurrent events |
-| Cox PWP | Recurrence baseline | Stratified by episode number (Gap Time) |
-| RSF | ML benchmark | Non-linearities + SHAP interpretability |
-| DynamicDeepHit | Core innovation | LSTM encoder + cause-specific competing risks |
-
-## Directory Structure
-
-```
-├── data/
-│   ├── raw/          # Immutable source data (SABI exports, PORDATA/INE macro CSVs)
-│   ├── interim/      # Intermediate transformations (micro_long, macro_consolidated)
-│   ├── processed/    # Final merged dataset (final_survival_dataset.csv)
-│   └── modeling/     # Model-ready feature sets by experiment (features_*.parquet)
-│
-├── notebooks/
-│   ├── 01_macro_eda.ipynb
-│   ├── 02_micro_eda_cleaning.ipynb
-│   ├── 03_target_macro_merge.ipynb
-│   ├── 04_financial_ratios_eda.ipynb
-│   └── 05+  (preprocessing, modeling, evaluation — in progress)
-│
-├── src/
-│   ├── data/
-│   │   └── preprocessing.py   # Lag, winsorisation, multi-state restructure
-│   ├── features/
-│   │   └── engineering.py     # DTD, Governance Entropy, Macro-Beta
-│   ├── models/
-│   │   ├── cox_pwp.py
-│   │   ├── rsf.py
-│   │   └── dynamic_deephit.py
-│   ├── evaluation/
-│   │   ├── metrics.py         # C-Index, IBS, AUC, MCF, D-Calibration
-│   │   └── plots.py           # Survival curves, calibration, SHAP
-│   └── visualization/         # Thesis-specific EDA figures
-│
-├── models/            # Saved model artifacts (.pkl, .pt)
-├── reports/figures/   # Generated plots for dissertation
-├── tests/             # Unit tests
-│
-├── docs/
-│   ├── planning/      # Research architecture (LaTeX source)
-│   │   └── latex/     # Main LaTeX environment (ESTG Template)
-│   │       └── sections/  # Modular chapters (Mathematics, Models, etc.)
-│   ├── dissertation/  # Literature, article, proposal
-│   └── templates/     # ESTG administrative templates
-```
-
-## Getting Started
-
-```bash
-python -m venv .venv
-source .venv/Scripts/activate  # Windows
-pip install -r requirements.txt
-```
-
-## Key References
-
-- Zhou et al. (2022) — Recurrence of financial distress: A survival analysis
-- Lee et al. (2019) — DynamicDeepHit: longitudinal data with competing risks
-- Borges & Carvalho (2024) — SME distress survival models (Portuguese context)
-- Ptak-Chmielewska & Matuszyk (2020) — RSF for SME bankruptcy prediction
+## 📊 Hypotheses
+- **H1:** Governance and macro data improve C-Index.
+- **H2:** RSF/DeepHit outperform Cox PH.
+- **H3:** RSF/DeepHit are superior for predicting recurrence.
