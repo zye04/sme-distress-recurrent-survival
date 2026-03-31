@@ -6,19 +6,29 @@ venv/
 .venv/
 .env
 .ipynb_checkpoints
+
+# LLM tools (Claude, Gemini)
+.claude/
+.gemini/
 GEMINI.md
 
+#Notebook backup and checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.local
+*.log
+
 # Data
-# Mantemos as pastas mas ignoramos os ficheiros de dados pesados
 data/interim/*
 data/processed/*
 !data/interim/.gitkeep
 !data/processed/.gitkeep
-# Dados raw pesados (como o CSV de 185 colunas) devem ser ignorados
 data/raw/micro/base_dados_final_stress_financeiro.csv
+*.csv
+*.xlsx
+*.xls
 
 # Models
-# Ignorar binários de modelos treinados
 models/*.h5
 models/*.pkl
 models/*.joblib
@@ -30,7 +40,22 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Logs e Reports
+# Logs & Reports
 reports/*.log
 reports/figures/*.png
 !reports/figures/.gitkeep
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.glo
+*.glsdefs
+*.ist
+*.acn
+*.lof
+*.lot
+*.synctex.gz
+*.toc

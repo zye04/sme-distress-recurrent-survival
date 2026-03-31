@@ -1,0 +1,32 @@
+\section{Features de Alta Ordem e Justificação Teórica}
+
+Para além dos rácios financeiros tradicionais, a nossa arquitetura de dados inclui variáveis que capturam dimensões não lineares do risco.
+
+\subsection{Distance to Default (Merton-inspired)}
+\todo[inline,color=orange!40]{PENDENTE: Confirmar se Hillegeist (2004) está na pasta /articles}
+Adaptamos a teoria de opções para PMEs sem cotação bolsista, utilizando a volatilidade do ROA como proxy da volatilidade dos ativos:
+\begin{equation}
+    DTD_i = \frac{\ln(A_i / D_i) + (\mu_A - \frac{\sigma_A^2}{2}) \cdot T}{\sigma_A \cdot \sqrt{T}}
+\end{equation}
+
+\subsection{Governance Entropy Index}
+Mede a instabilidade da gestão como um sinal de alerta precoce (\textit{Early Warning}):
+\begin{equation}
+    GE_i(t) = -\sum_{k} p_k \ln(p_k)
+\end{equation}
+Onde $p_k$ é a proporção de tempo que o conselho de gerência manteve a mesma composição.
+
+\subsection{Macro-Beta (Sensibilidade Heterogénea)}
+Calcula a sensibilidade específica da PME ao ciclo económico nacional:
+\begin{equation}
+    \beta^{PIB}_{i} = \frac{Cov(\Delta Revenue_{i,t},\ \Delta PIB_t)}{Var(\Delta PIB_t)}
+\end{equation}
+
+\section{Estratificação de Feature Sets (H1)}
+
+Para testar o valor incremental da \textit{Governance} e \textit{Macro} (H1), definimos três conjuntos de treino:
+\begin{enumerate}
+    \item \textbf{FS1:} Apenas rácios financeiros brutos (Baseline).
+    \item \textbf{FS2:} Rácios financeiros + Indicadores de \textit{Governance}.
+    \item \textbf{FS3:} Conjunto completo (Financeiros, Governance, Macro e Features de Alta Ordem).
+\end{enumerate}

@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,twoside]{report}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{pdfpages}
+\usepackage{parskip}
+\usepackage{url}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[acronym]{glossaries}
+\makeglossaries
+
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listagem}
+\renewcommand*{\lstlistlistingname}{Lista de Listagens}
+\lstset{
+ xleftmargin = 1cm,
+ basicstyle=\footnotesize, 
+ numbers=left, 
+ captionpos=b,
+ columns=fullflexible,
+ breaklines=true, 
+ frame=single
+}
+
+\begin{document}
+
+\pagenumbering{roman}
+\input{acronimos}
+
+\chapter*{Draft de Planeamento Estratégico (Nota 20)}
+\textit{Este documento segue a estrutura oficial da tese para facilitar a transição de conteúdos.}
+
+\tableofcontents 
+\listoffigures 
+\listoftables 
+
+\printglossary[type=\acronymtype,title=Acrónimos,nonumberlist]
+
+\chapter{Introdução}
+\pagenumbering{arabic}
+\input{sections/00_roadmap}
+
+\chapter{Estado da Arte e Trabalho Relacionado}
+% Aqui entrarão as bases de sobrevivência e Deep Learning
+\input{sections/01_mathematics}
+% Add citations to your bibliography entries using \cite{key}
+\cite{*}
+
+\chapter{Desenho e Especificação}
+\input{sections/02_data_architecture}
+\input{sections/03_models}
+\input{sections/05_features}
+
+\chapter{Validação e Resultados (Planeamento)}
+\input{sections/04_evaluation}
+
+\chapter{Conclusão}
+% Resumo das metas de investigação
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+\end{document}
