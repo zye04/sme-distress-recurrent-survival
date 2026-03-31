@@ -1,0 +1,26 @@
+\section{Introdução e Pivot Estratégico}
+
+Esta investigação transcende a visão binária e estática da falência empresarial, adotando uma perspetiva dinâmica e recorrente. O fenómeno central é o \textit{Recurring Financial Distress}, analisado através do ciclo \textbf{saúde-doença-recaída}.
+
+\subsection{Diferenciação Crítica: Estados Transientes vs. Absorventes}
+A literatura tradicional colapsa frequentemente diferentes tipos de eventos numa única variável de "distress". Para atingir a excelência preditiva, distinguimos três estados fundamentais:
+\begin{itemize}
+    \item \textbf{Estado 0 (Saudável):} Operação normal sem sinais de alerta.
+    \item \textbf{Estado 1 (Distress Transiente):} Verificação de critérios operacionais recuperáveis (ex: Capital Próprio negativo ou EBITDA insuficiente para cobrir juros).
+    \item \textbf{Estado 2 (Falência/Terminal):} Verificação de critérios de dissolução legal ou liquidação (Estado Absorvente).
+\end{itemize}
+
+\section{Hipóteses de Investigação}
+
+\begin{description}
+    \item[H1 (Feature Value):] A inclusão de variáveis de \textit{Corporate Governance} e Macroeconomia reduz significativamente o erro de calibração (Brier Score) e melhora a discriminação (C-Index) em comparação com modelos puramente financeiros baseados em rácios do SABI.
+    \item[H2 (Superioridade Arquitetural):] Modelos de Deep Learning Sequencial (\textbf{DynamicDeepHit}) superam modelos estáticos (Cox, RSF) ao capturarem a memória financeira das PME através de trajetórias longitudinais.
+    \item[H3 (Dinâmica da Recorrência):] Os determinantes da recaída (transição $0 \to 1$ após um episódio prévio) são estruturalmente diferentes dos determinantes do primeiro episódio de stress, justificando o uso de modelos estratificados (\textbf{Cox PWP}).
+\end{description}
+
+\section{Inovações Técnicas Centrais}
+\begin{enumerate}
+    \item \textbf{DynamicDeepHit:} Arquitetura com RNN/LSTM para processar sequências temporais e riscos concorrentes.
+    \item \textbf{Cox PWP (Prentice-Williams-Peterson):} Modelação da recorrência com estratificação por episódio.
+    \item \textbf{Calibração de Precisão:} Foco no \textit{Integrated Brier Score} (IBS) para medir a qualidade das probabilidades estimadas.
+\end{enumerate}
