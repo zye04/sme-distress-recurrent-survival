@@ -1,0 +1,30 @@
+\section{Métricas de Discriminação}
+
+Para avaliar a capacidade do modelo em ordenar corretamente as empresas por nível de risco:
+\begin{itemize}
+    \item \textbf{Harrell's C-Index:} Medida global de concordância entre os scores previstos e os tempos de falha observados.
+    \item \textbf{Time-Dependent AUC:} Avaliação da performance discriminativa em horizontes temporais específicos (1, 3 e 5 anos), permitindo analisar a degradação da precisão ao longo do tempo.
+\end{itemize}
+
+\section{Métricas de Calibração (O Padrão de Excelência)}
+
+Um modelo de nota 20 deve ser bem calibrado, não apenas discriminativo:
+\begin{itemize}
+    \item \textbf{Integrated Brier Score (IBS):} Métrica que quantifica a precisão das probabilidades estimadas ao longo de todo o período de estudo.
+    \item \textbf{D-Calibration:} Teste estatístico para verificar se o modelo é consistente com a distribuição real dos dados de sobrevivência.
+\end{itemize}
+
+\section{Avaliação da Recorrência e Estabilidade}
+
+\begin{itemize}
+    \item \textbf{Mean Cumulative Function (MCF):} Comparação visual entre o número esperado de episódios de stress previsto vs. observado.
+    \item \textbf{Stratified Evaluation:} Cálculo de métricas separadas para o primeiro episódio e para a recaída, testando a validade da hipótese H3.
+\end{itemize}
+
+\section{Protocolo de Validação Temporal}
+
+\begin{itemize}
+    \item \textbf{Train Set (2005-2018):} Base de aprendizagem histórica, incluindo o período da crise financeira.
+    \item \textbf{Validation Set (2019-2021):} Tuning de hiperparâmetros, incluindo o choque do COVID-19.
+    \item \textbf{Test Set (2022-2023):} Avaliação final e "cega" da performance preditiva em ambiente pós-pandémico.
+\end{itemize}
