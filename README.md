@@ -39,11 +39,11 @@ The core contribution is framing the problem as a **multi-state model** with com
 │   └── modeling/     # Model-ready feature sets by experiment (features_*.parquet)
 │
 ├── notebooks/
-│   ├── 01_macro_eda.ipynb
-│   ├── 02_micro_eda_cleaning.ipynb
-│   ├── 03_target_macro_merge.ipynb
-│   ├── 04_financial_ratios_eda.ipynb
-│   └── 05+  (preprocessing, modeling, evaluation — in progress)
+│   ├── 01_eda_macro.ipynb           # PIB, Juros, Desemprego (Raw -> Interim)
+│   ├── 02_eda_cleaning_micro.ipynb   # Limpeza SABI e Long-Format (Raw -> Interim)
+│   ├── 03_feature_engineering.ipynb  # Rácios e Governance (Interim -> Interim)
+│   ├── 04_survival_construction.ipynb # Multi-Estado + Lagging + Merge (Interim -> Processed)
+│   └── 05_modeling_survival.ipynb    # Cox, RSF, DeepHit (Em breve)
 │
 ├── src/
 │   ├── data/
